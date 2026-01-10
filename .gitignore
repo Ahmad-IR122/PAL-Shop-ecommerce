@@ -1,0 +1,24 @@
+# Node
+frontend/node_modules/git rm -r --cached frontend/node_modules
+npm-debug.log*
+yarn-error.log*
+
+# Python / Django
+djangoEnv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+media/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
