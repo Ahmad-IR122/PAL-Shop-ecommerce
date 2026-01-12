@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'rest_framework',
+    "django_admin_contexts",
+
+
+
 ]
 
 MIDDLEWARE = [
