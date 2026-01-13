@@ -31,7 +31,7 @@ class RegisterCustomerAPIView(APIView):
                      "username" : user.username,
                      "email" : user.email,
                  },
-                 "token" : {
+                 "tokens" : {
                      "refresh" : str(refresh_token),
                      "access" : str(refresh_token.access_token),
                  }
