@@ -46,10 +46,8 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'rest_framework',
+    'rest_framework_simplejwt',
     "django_admin_contexts",
-
-
-
 ]
 
 MIDDLEWARE = [
@@ -78,6 +76,16 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
+
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 

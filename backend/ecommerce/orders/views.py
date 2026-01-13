@@ -2,7 +2,7 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from rest_framework.generics import CreateAPIView, ListAPIView, DestroyAPIView, UpdateAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from orders.models import CartItem, Cart
@@ -13,6 +13,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from .models import Cart, CartItem
 from products.models import Product
+from rest_framework import generics
+
 # Create your views here.
 class CartDetailAPIView(CreateAPIView):
     permission_classes = [IsAuthenticated]
@@ -174,7 +176,7 @@ class UpdateOrderStatusAPIView(APIView):
 
 
 class OrderDeleteAPIView(generics.DestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         # 🔐 ownership protection
