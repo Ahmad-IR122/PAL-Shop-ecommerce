@@ -6,10 +6,7 @@ from rest_framework import status
 from django.contrib.auth.models import Group
 from rest_framework_simplejwt.tokens import RefreshToken
 from users.serializers import RegisterSerializer
-
-
 # Create your views here.
-
 class RegisterCustomerAPIView(APIView):
 
     serializer_class = RegisterSerializer
@@ -30,6 +27,8 @@ class RegisterCustomerAPIView(APIView):
                      "id" : user.id,
                      "username" : user.username,
                      "email" : user.email,
+                     "first_name": user.first_name,
+                     "last_name": user.last_name,
                  },
                  "tokens" : {
                      "refresh" : str(refresh_token),
@@ -58,6 +57,8 @@ class RegisterSellerAPIView(APIView):
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
+                    "first_name": user.first_name,
+                    "last_name": user.last_name,
                 },
                 "tokens": {
                     "refresh": str(refresh_token),
