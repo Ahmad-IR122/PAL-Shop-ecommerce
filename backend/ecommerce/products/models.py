@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
@@ -21,7 +21,14 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='products/')
+    image_url = models.URLField(
+        max_length=1000,
+        help_text="Paste image URL here",
+        blank=True,
+        null=True,
+        default="https://via.placeholder.com/600x600.png?text=No+Image"
+    )
+
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(

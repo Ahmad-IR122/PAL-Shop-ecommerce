@@ -8,6 +8,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
+    image = serializers.CharField(source='image.url', read_only=True)
     class Meta:
         model = Product
         fields = '__all__'
