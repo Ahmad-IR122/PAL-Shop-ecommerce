@@ -45,7 +45,7 @@ class ProductDetailAPIView(RetrieveAPIView):
 class ProductCreateAPIView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [IsAdminOrSeller ]
+    permission_classes = [IsAdminOrSeller]
 
 class ProductDeleteAPIView(DestroyAPIView):
     queryset = Product.objects.all()
