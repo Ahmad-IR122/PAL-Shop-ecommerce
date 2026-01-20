@@ -46,6 +46,8 @@ class ProductCreateAPIView(CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [IsAdminOrSeller]
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 class ProductDeleteAPIView(DestroyAPIView):
     queryset = Product.objects.all()
