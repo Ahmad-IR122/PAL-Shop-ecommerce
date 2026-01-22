@@ -30,7 +30,6 @@ const Products = () => {
       <h2>Products</h2>
       {products.length > 0 ? (
         products.map((p) => {
-          console.log("Image URL:", p.image_url);
           return (
             <div key={p.id}>
               <img
