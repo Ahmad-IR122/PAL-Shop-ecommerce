@@ -1,5 +1,6 @@
 # Node
-frontend/node_modules/git rm -r --cached frontend/node_modulesgit commit -m "Fix .gitignore issue"
+frontend/node_modules*
+
 npm-debug.log*
 yarn-error.log*
 
