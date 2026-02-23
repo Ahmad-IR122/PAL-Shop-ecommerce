@@ -10,3 +10,13 @@ export const getAllProducts = async () => {
   }
 };
 
+export const getProductById = async (id) => {
+  try {
+    const response = await API.get(`/products/products-detail/${id}/`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching product by ID:", error);
+    throw error;
+  } 
+}
+
